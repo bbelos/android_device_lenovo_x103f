@@ -39,7 +39,7 @@ ifeq ($(KERNEL_DEFCONFIG),)
     KERNEL_DEFCONFIG := msm8909_ar650x_defconfig
 endif
 
-include kernel/AndroidKernel.mk
+#include kernel/AndroidKernel.mk
 
 $(INSTALLED_KERNEL_TARGET): $(TARGET_PREBUILT_KERNEL) | $(ACP)
 	$(transform-prebuilt-to-target)
@@ -249,7 +249,7 @@ endif
 #----------------------------------------------------------------------
 # extra images
 #----------------------------------------------------------------------
-include device/qcom/common/generate_extra_images.mk
+#include device/qcom/common/generate_extra_images.mk
 
 #----------------------------------------------------------------------
 # pick up additional files for Tiny Android builds

@@ -51,7 +51,7 @@ TARGET_HAVE_HDMI_OUT := false
 TARGET_USES_OVERLAY := true
 TARGET_USES_PCI_RCS := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
-TARGET_NO_BOOTLOADER := false
+TARGET_NO_BOOTLOADER := true
 TARGET_NO_KERNEL := false
 TARGET_NO_RADIOIMAGE := true
 TARGET_NO_RPC := true
@@ -72,6 +72,8 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_HARDWARE_3D := false
 TARGET_BOARD_PLATFORM := msm8909
 TARGET_BOOTLOADER_BOARD_NAME := msm8909
+
+TARGET_PREBUILT_KERNEL := device/qcom/msm8909/kernel
 
 BOARD_KERNEL_BASE        := 0x80000000
 BOARD_KERNEL_PAGESIZE    := 2048
@@ -128,7 +130,7 @@ TARGET_USES_NEW_ION_API :=true
 TARGET_USES_QCOM_BSP := true
 
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
-TARGET_INIT_VENDOR_LIB := libinit_msm
+#TARGET_INIT_VENDOR_LIB := libinit_msm
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 #Add support for firmare upgrade on msm8909
@@ -153,8 +155,26 @@ FEATURE_QCRIL_UIM_SAP_SERVER_MODE := true
 # Control flag between KM versions
 TARGET_HW_KEYMASTER_V03 := true
 
-BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
+#BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
 
 #Add by tansen for Widevine fuction 20160408 SW00186672 begin
 BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 3
 #Add by tansen for Widevine fuction 20160408 SW00186672 end
+
+# TWRP
+TARGET_RECOVERY_FSTAB := device/qcom/msm8909/twrp.fstab
+TW_THEME := landscape_hdpi
+#TARGET_SCREEN_HEIGHT := 800
+#TARGET_SCREEN_WIDTH := 1280
+#TW_INCLUDE_CRYPTO := true
+#BOARD_HAS_LARGE_FILESYSTEM := true
+#TW_NO_USB_STORAGE := true
+#RECOVERY_GRAPHICS_USE_LINELENGTH := true
+#TW_NO_REBOOT_BOOTLOADER := true
+#TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+#TW_MAX_BRIGHTNESS := 255
+#TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
+#TW_INTERNAL_STORAGE_PATH := "/sdcard1"
+#TW_INTERNAL_STORAGE_MOUNT_POINT := "Phone Storage"
+#TW_EXTERNAL_STORAGE_PATH := "/sdcard0"
+#TW_EXTERNAL_STORAGE_MOUNT_POINT := "Micro SDCard"

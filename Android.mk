@@ -4,6 +4,7 @@
 #
 
 #include $(CLEAR_VARS)
+LOCAL_PATH := device/qcom/msm8909
 #LOCAL_MODULE       := wpa_supplicant.conf
 #LOCAL_MODULE_TAGS  := optional
 #LOCAL_MODULE_CLASS := ETC
@@ -11,4 +12,4 @@
 #LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/wifi
 #include $(BUILD_PREBUILT)
 
-#include $(call all-makefiles-under,$(LOCAL_PATH))
+include $(call all-makefiles-under,$(LOCAL_PATH))
