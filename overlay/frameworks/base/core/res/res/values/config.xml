@@ -63,56 +63,9 @@
    phone object irrespective of this config -->
 <!--   <bool name="config_switch_phone_on_voice_reg_state_change">false</bool> -->
 
-   <!-- Whether cpu boost is enabled for overscroller fling. -->
-   <bool name="config_enableCpuBoostForOverScrollerFling">true</bool>
-   <integer-array name="flingboost_param_value">
-       <item>0x020B</item> <!-- CPUBOOST_MIN_FREQ resource opcode-->
-       <item>0x3E01</item> <!-- SCHED_PREFER_IDLE resource opcode -->
-   </integer-array>
-
    <!-- Configuartion to support 7bit Ascii encoding and decoding
    for long messages. -->
 <!--   <bool name="config_ascii_7bit_support_for_long_message">true</bool> -->
-
-   <!-- Whether cpu boost is enabled for horizontal scroll. -->
-   <bool name="config_enableCpuBoostForScroller">true</bool>
-   <integer-array name="scrollboost_param_value">
-       <item>0x020B</item> <!-- CPUBOOST_MIN_FREQ resource opcode-->
-       <item>0x3E01</item> <!-- SCHED_PREFER_IDLE resource opcode -->
-   </integer-array>
-
-   <!-- Whether cpu boost is enabled for application's 1st launch. -->
-   <bool name="config_enableCpuBoostForAppLaunch">true</bool>
-   <integer name="launchboost_timeout_param">2000</integer>
-   <integer-array name="launchboost_param_value">
-       <item>0x020C</item> <!-- CPUBOOST_MIN_FREQ resource opcode-->
-       <item>0x0101</item> <!-- DISABLE_POWER_COLLAPSE resource opcode -->
-       <item>0x0704</item> <!--Minimum number of cores online resource opcode -->
-       <item>0x1C00</item> <!-- KSMBOOST resource opcode -->
-   </integer-array>
-   <!-- Whether packing disable is enabled.  -->
-   <bool name="config_disablePacking">true</bool>
-   <integer name="disablepacking_timeout_param">5000</integer>
-   <integer-array name="launchboost_packing_param_value">
-       <item>0x3E01</item> <!-- SCHED_PREFER_IDLE resource opcode -->
-       <item>0x4001</item> <!-- SCHED_SMALL_TASK resource opcode -->
-       <item>0x4201</item> <!-- SCHED_IDLE_NR_RUN resource opcode -->
-       <item>0x4101</item> <!-- SCHED_IDLE_LOAD resource opcode -->
-   </integer-array>
-
-   <!-- Whether cpu boost is enabled for animation during exit and entry -->
-   <bool name="config_enablePerfBoostForAnimation">true</bool>
-   <integer name="animationboost_timeout_param">600</integer>
-   <integer-array name="animationboost_param_value">
-       <item>0x020B</item> <!-- CPUBOOST_MIN_FREQ resource opcode-->
-   </integer-array>
-
-   <!-- Activity scroll boost params -->
-   <integer name="ascrollboost_timeout">17</integer>
-   <integer-array name="ascrollboost_param_value">
-       <item>0x020B</item> <!-- CPUBOOST_MIN_FREQ resource opcode-->
-       <item>0x0101</item> <!-- DISABLE_POWER_COLLAPSE resource opcode -->
-   </integer-array>
 
    <!-- Enable button light -->
 <!--   <bool name="config_button_light_enabled">true</bool> -->
