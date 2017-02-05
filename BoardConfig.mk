@@ -16,6 +16,7 @@
 #
 # Product-specific compile-time definitions.
 #
+DEVICE_PATH := device/lenovo/x103f
 
 ifeq ($(TARGET_ARCH),)
 TARGET_ARCH := arm
@@ -31,6 +32,9 @@ ifeq ($(HOST_OS),linux)
   endif
 endif
 #add by wangtianyu for odex SW00187384 20150425 end
+
+BLOCK_BASED_OTA := false
+TARGET_OTA_ASSERT_DEVICE := msm8909,x103f
 
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 TARGET_KERNEL_APPEND_DTB := true
@@ -73,7 +77,9 @@ TARGET_HARDWARE_3D := false
 TARGET_BOARD_PLATFORM := msm8909
 TARGET_BOOTLOADER_BOARD_NAME := msm8909
 
-TARGET_PREBUILT_KERNEL := device/qcom/msm8909/kernel
+TARGET_KERNEL_SOURCE := kernel/lenovo/msm8909
+TARGET_KERNEL_CONFIG := msm8909_ar650x_defconfig
+#TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/kernel
 
 BOARD_KERNEL_BASE        := 0x80000000
 BOARD_KERNEL_PAGESIZE    := 2048
@@ -103,10 +109,10 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
 
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk androidboot.selinux=permissive
 BOARD_KERNEL_SEPARATED_DT := true
 
-BOARD_EGL_CFG := device/qcom/msm8909/egl.cfg
+BOARD_EGL_CFG := $(DEVICE_PATH)/egl.cfg
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x01000000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x01000000
@@ -161,9 +167,14 @@ TARGET_HW_KEYMASTER_V03 := true
 BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 3
 #Add by tansen for Widevine fuction 20160408 SW00186672 end
 
+# SELinux policies
+include device/qcom/sepolicy/sepolicy.mk
+
+#TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/twrp.fstab
+
 # TWRP
-TARGET_RECOVERY_FSTAB := device/qcom/msm8909/twrp.fstab
-TW_THEME := landscape_hdpi
+#TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/twrp.fstab
+#TW_THEME := landscape_hdpi
 #TARGET_SCREEN_HEIGHT := 800
 #TARGET_SCREEN_WIDTH := 1280
 #TW_INCLUDE_CRYPTO := true

@@ -1,4 +1,4 @@
-DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8909/overlay
+DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 TARGET_USES_QCOM_BSP := true
 ifeq ($(TARGET_USES_QCOM_BSP), true)
@@ -12,18 +12,16 @@ endif #TARGET_USES_QCOM_BSP
 
 # media_profiles and media_codecs xmls for msm8909
 ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
-PRODUCT_COPY_FILES += device/qcom/msm8909/media/media_profiles_8909.xml:system/etc/media_profiles.xml \
-                      device/qcom/msm8909/media/media_codecs_8909.xml:system/etc/media_codecs.xml \
-                      device/qcom/msm8909/media/media_codecs_performance_8909.xml:system/etc/media_codecs_performance.xml
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/media/media_profiles_8909.xml:system/etc/media_profiles.xml \
+                      $(LOCAL_PATH)/media/media_codecs_8909.xml:system/etc/media_codecs.xml \
+                      $(LOCAL_PATH)/media/media_codecs_performance_8909.xml:system/etc/media_codecs_performance.xml
 endif
 
-PRODUCT_PROPERTY_OVERRIDES += \
-       dalvik.vm.heapgrowthlimit=128m \
-       dalvik.vm.heapminfree=6m
-$(call inherit-product, device/qcom/common/common.mk)
-
-PRODUCT_NAME := msm8909
-PRODUCT_DEVICE := msm8909
+$(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
+#PRODUCT_PROPERTY_OVERRIDES += \
+#       dalvik.vm.heapgrowthlimit=128m \
+#       dalvik.vm.heapminfree=6m
+#$(call inherit-product, device/qcom/common/common.mk)
 
 ifeq ($(strip $(TARGET_USES_QTIC)),true)
 # font rendering engine feature switch
@@ -39,20 +37,20 @@ PRODUCT_PACKAGES += libGLES_android
 
 # Audio configuration file
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8909/audio_policy.conf:system/etc/audio_policy.conf \
-    device/qcom/msm8909/audio_effects.conf:system/vendor/etc/audio_effects.conf \
-    device/qcom/msm8909/mixer_paths_qrd_skuh.xml:system/etc/mixer_paths_qrd_skuh.xml \
-    device/qcom/msm8909/mixer_paths_qrd_skui.xml:system/etc/mixer_paths_qrd_skui.xml \
-    device/qcom/msm8909/mixer_paths.xml:system/etc/mixer_paths.xml \
-    device/qcom/msm8909/mixer_paths_msm8909_pm8916.xml:system/etc/mixer_paths_msm8909_pm8916.xml \
-    device/qcom/msm8909/mixer_paths_wcd9326_i2s.xml:system/etc/mixer_paths_wcd9326_i2s.xml \
-    device/qcom/msm8909/mixer_paths_skua.xml:system/etc/mixer_paths_skua.xml \
-    device/qcom/msm8909/mixer_paths_skuc.xml:system/etc/mixer_paths_skuc.xml \
-    device/qcom/msm8909/mixer_paths_skue.xml:system/etc/mixer_paths_skue.xml \
-    device/qcom/msm8909/mixer_paths_qrd_skut.xml:system/etc/mixer_paths_qrd_skut.xml \
-    device/qcom/msm8909/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
-    device/qcom/msm8909/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
-    device/qcom/msm8909/audio_platform_info.xml:system/etc/audio_platform_info.xml
+    $(LOCAL_PATH)/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/audio_effects.conf:system/vendor/etc/audio_effects.conf \
+    $(LOCAL_PATH)/mixer_paths_qrd_skuh.xml:system/etc/mixer_paths_qrd_skuh.xml \
+    $(LOCAL_PATH)/mixer_paths_qrd_skui.xml:system/etc/mixer_paths_qrd_skui.xml \
+    $(LOCAL_PATH)/mixer_paths.xml:system/etc/mixer_paths.xml \
+    $(LOCAL_PATH)/mixer_paths_msm8909_pm8916.xml:system/etc/mixer_paths_msm8909_pm8916.xml \
+    $(LOCAL_PATH)/mixer_paths_wcd9326_i2s.xml:system/etc/mixer_paths_wcd9326_i2s.xml \
+    $(LOCAL_PATH)/mixer_paths_skua.xml:system/etc/mixer_paths_skua.xml \
+    $(LOCAL_PATH)/mixer_paths_skuc.xml:system/etc/mixer_paths_skuc.xml \
+    $(LOCAL_PATH)/mixer_paths_skue.xml:system/etc/mixer_paths_skue.xml \
+    $(LOCAL_PATH)/mixer_paths_qrd_skut.xml:system/etc/mixer_paths_qrd_skut.xml \
+    $(LOCAL_PATH)/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
+    $(LOCAL_PATH)/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
+    $(LOCAL_PATH)/audio_platform_info.xml:system/etc/audio_platform_info.xml
 
 PRODUCT_BOOT_JARS += qcom.fmradio \
 
@@ -68,7 +66,7 @@ endif
 
 # Listen configuration file
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8909/listen_platform_info.xml:system/etc/listen_platform_info.xml
+    $(LOCAL_PATH)/listen_platform_info.xml:system/etc/listen_platform_info.xml
 
 # Feature definition files for msm8909
 PRODUCT_COPY_FILES += \
@@ -128,15 +126,15 @@ PRODUCT_PACKAGES += hwdiag
 #/* Modified by rentianzhi Add R/W WLAN MAC for diag module 2016-02-03 begin */
 #/*Deleted by yujunfeng moved WCNSS_qcom_cfg.ini to product_config_xxx 2016-04-28 begin*/
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8909/WCNSS_wlan_dictionary.dat:persist/WCNSS_wlan_dictionary.dat \
-    device/qcom/msm8909/wlan_mac.bin:persist/wlan_mac.bin \
-    device/qcom/msm8909/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
+    $(LOCAL_PATH)/WCNSS_wlan_dictionary.dat:persist/WCNSS_wlan_dictionary.dat \
+    $(LOCAL_PATH)/wlan_mac.bin:persist/wlan_mac.bin \
+    $(LOCAL_PATH)/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 #/*Deleted by yujunfeng moved WCNSS_qcom_cfg.ini to product_config_xxx 2016-04-27 end*/
 #/* Modified by rentianzhi Add R/W WLAN MAC for diag module 2016-02-03 end */
 
 # Added by wangjunbo for factory current test (A6505) SW00188623 2016-06-17 begin
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8909/init.currenttest.timeout.sh:system/etc/init.currenttest.timeout.sh
+    $(LOCAL_PATH)/init.currenttest.timeout.sh:system/etc/init.currenttest.timeout.sh
 # Added by wangjunbo for factory current test (A6505) SW00188623 2016-06-17 end
 
 PRODUCT_PACKAGES += \
@@ -196,23 +194,23 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Sensor HAL conf file
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8909/sensors/hals.conf:system/etc/sensors/hals.conf
+    $(LOCAL_PATH)/sensors/hals.conf:system/etc/sensors/hals.conf
 #add by shenxinyu for update ISO for A6505 SW00189102 2016-07-25 begin
 ifeq ($(YEP_PRODUCT_NAME),AR6505)
-    PRODUCT_COPY_FILES += device/qcom/msm8909/YEPAUTOINST_ARH_ROW.ISO:system/etc/YEPAUTOINST.ISO
+    PRODUCT_COPY_FILES += $(LOCAL_PATH)/YEPAUTOINST_ARH_ROW.ISO:system/etc/YEPAUTOINST.ISO
 else
         ifeq ($(findstring PRC,$(PRODUCT_EXTERNAL_VERSION)),PRC)
-            PRODUCT_COPY_FILES += device/qcom/msm8909/YEPAUTOINST_PRC.ISO:system/etc/YEPAUTOINST.ISO
+            PRODUCT_COPY_FILES += $(LOCAL_PATH)/YEPAUTOINST_PRC.ISO:system/etc/YEPAUTOINST.ISO
         else
-            PRODUCT_COPY_FILES += device/qcom/msm8909/YEPAUTOINST_ROW.ISO:system/etc/YEPAUTOINST.ISO
+            PRODUCT_COPY_FILES += $(LOCAL_PATH)/YEPAUTOINST_ROW.ISO:system/etc/YEPAUTOINST.ISO
         endif
 endif
 #add by shenxinyu for update ISO for A6505 SW00189102 2016-07-25 end
 #add by wangqi for SW00188085 to add tptest begin
-PRODUCT_COPY_FILES += packages/yepapp/YepFactoryKit/assets/Conf_MultipleTest.ini:system/etc/Conf_MultipleTest.ini
+#PRODUCT_COPY_FILES += packages/yepapp/YepFactoryKit/assets/Conf_MultipleTest.ini:system/etc/Conf_MultipleTest.ini
 #add by wangqi for SW00188085 to add tptest end
 #Add by tansen for Widevine fuction 20160408 SW00186672 begin
-include vendor/qcom/proprietary/widevine/config.mk
+#include vendor/qcom/proprietary/widevine/config.mk
 #Add by tansen for Widevine fuction 20160408 SW00186672 end
 
 #Add by wangtianyu for country list 20160425 SW00146745 begin
@@ -223,4 +221,3 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
         setproperties
 #Add by wangtianyu for country list 20160425 SW00183743 end
-

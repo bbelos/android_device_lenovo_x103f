@@ -4,7 +4,9 @@
 #
 
 #include $(CLEAR_VARS)
-LOCAL_PATH := device/qcom/msm8909
+LOCAL_PATH := $(call my-dir)
+
+ifeq ($(TARGET_DEVICE),x103f)
 #LOCAL_MODULE       := wpa_supplicant.conf
 #LOCAL_MODULE_TAGS  := optional
 #LOCAL_MODULE_CLASS := ETC
@@ -13,3 +15,5 @@ LOCAL_PATH := device/qcom/msm8909
 #include $(BUILD_PREBUILT)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
+
+endif

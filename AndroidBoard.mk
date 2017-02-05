@@ -34,7 +34,7 @@ endif
 # Compile Linux Kernel
 #----------------------------------------------------------------------
 #yuquan added AX650X product
-include device/qcom/msm8909/Product_AR650X_List.mk
+include $(LOCAL_PATH)/Product_AR650X_List.mk
 ifeq ($(KERNEL_DEFCONFIG),)
     KERNEL_DEFCONFIG := msm8909_ar650x_defconfig
 endif
