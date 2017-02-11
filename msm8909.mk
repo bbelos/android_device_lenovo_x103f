@@ -6,6 +6,40 @@ ifeq ($(TARGET_USES_QCOM_BSP), true)
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 endif #TARGET_USES_QCOM_BSP
 
+#Audio
+PRODUCT_COPY_FILES += \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
+
+PRODUCT_PACKAGES += \
+    libaudioroute \
+    libtinyxml \
+    audio.a2dp.default \
+    audio.primary.msm8909 \
+    audio.r_submix.default \
+    audio.usb.default
+
+#Camera
+PRODUCT_PACKAGES += \
+    camera.msm8909 \
+    libcamera \
+    libqomx_core \
+    libmm-qcamera \
+    libmmcamera_interface \
+    libmmjpeg_interface \
+    mm-qcamera-app
+
+#Display
+PRODUCT_PACKAGES += \
+    hwcomposer.msm8909 \
+    gralloc.msm8909 \
+    memtrack.msm8909 \
+    copybit.msm8909
+
+PRODUCT_PACKAGES += \
+    libxml2
+
 
 #QTIC flag
 -include $(QCPATH)/common/config/qtic-config.mk
@@ -136,6 +170,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.currenttest.timeout.sh:system/etc/init.currenttest.timeout.sh
 # Added by wangjunbo for factory current test (A6505) SW00188623 2016-06-17 end
+
+PRODUCT_PACKAGES += \
+    libwifi-hal-qcom
+
+PRODUCT_PACKAGES += \
+    hostapd \
+    libwpa_client \
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf \
