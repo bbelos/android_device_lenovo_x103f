@@ -37,6 +37,22 @@ PRODUCT_PACKAGES += \
     memtrack.msm8909 \
     copybit.msm8909
 
+# Init
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.carrier.rc \
+    init.class_main.sh \
+    init.mdm.sh \
+    init.qcom.bms.sh \
+    init.qcom.class_core.sh \
+    init.qcom.factory.rc \
+    init.qcom.rc \
+    init.qcom.serialno.sh \
+    init.qcom.sh \
+    init.qcom.usb.rc \
+    init.target.rc \
+    ueventd.qcom.rc
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
