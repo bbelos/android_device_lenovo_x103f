@@ -37,6 +37,23 @@ PRODUCT_PACKAGES += \
     memtrack.msm8909 \
     copybit.msm8909
 
+# etc
+PRODUCT_PACKAGES += \
+    init.qcom.audio.sh \
+    init.qcom.bt.sh \
+    init.qcom.coex.sh \
+    init.qcom.debug.sh \
+    init.qcom.efs.sync.sh \
+    init.qcom.fm.sh \
+    init.qcom.modem_links.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.sdio.sh \
+    init.qcom.uicc.sh \
+    init.qcom.wifi.sh \
+    init.qcom.zram.sh \
+    init.qti.ims.sh \
+    init.qti.synaptics_dsx_qhd.sh
+
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -52,6 +69,8 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.target.rc \
     ueventd.qcom.rc
+
+
 
 # Permissions
 PRODUCT_COPY_FILES += \
