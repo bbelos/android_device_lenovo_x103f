@@ -169,23 +169,3 @@ BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 3
 
 # SELinux policies
 include device/qcom/sepolicy/sepolicy.mk
-
-#TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/twrp.fstab
-
-# TWRP
-#TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/twrp.fstab
-#TW_THEME := landscape_hdpi
-#TARGET_SCREEN_HEIGHT := 800
-#TARGET_SCREEN_WIDTH := 1280
-#TW_INCLUDE_CRYPTO := true
-#BOARD_HAS_LARGE_FILESYSTEM := true
-#TW_NO_USB_STORAGE := true
-#RECOVERY_GRAPHICS_USE_LINELENGTH := true
-#TW_NO_REBOOT_BOOTLOADER := true
-#TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
-#TW_MAX_BRIGHTNESS := 255
-#TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
-#TW_INTERNAL_STORAGE_PATH := "/sdcard1"
-#TW_INTERNAL_STORAGE_MOUNT_POINT := "Phone Storage"
-#TW_EXTERNAL_STORAGE_PATH := "/sdcard0"
-#TW_EXTERNAL_STORAGE_MOUNT_POINT := "Micro SDCard"
