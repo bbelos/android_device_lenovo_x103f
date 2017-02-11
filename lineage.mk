@@ -27,7 +27,7 @@ $(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
 $(call inherit-product, device/lenovo/x103f/full_x103f.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := cm_x103f
+PRODUCT_NAME := lineage_x103f
 PRODUCT_BRAND := lenovo
 PRODUCT_DEVICE := x103f
 PRODUCT_MODEL := TB-X103F
