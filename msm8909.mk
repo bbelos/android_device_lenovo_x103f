@@ -281,3 +281,5 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
         setproperties
 #Add by wangtianyu for country list 20160425 SW00183743 end
+
+$(call inherit-product-if-exists, vendor/lenovo/x103f/x103f-vendor.mk)
