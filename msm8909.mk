@@ -6,11 +6,6 @@ ifeq ($(TARGET_USES_QCOM_BSP), true)
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 endif #TARGET_USES_QCOM_BSP
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.input.hwrotation=270 \
-#    persist.panel.orientation=90
-#    ro.sf.hwrotation=90
-
 #Audio
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
