@@ -20,6 +20,9 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.usb.default
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    audio.offload.disable=1
+
 #Camera
 PRODUCT_PACKAGES += \
     camera.msm8909 \
