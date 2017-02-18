@@ -73,6 +73,20 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
+# Media
+PRODUCT_PACKAGES += \
+    libstagefrighthw \
+    libc2dcolorconvert \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVenc
+
+PRODUCT_BOOT_JARS += \
+    libstagefrighthw
 
 
 # Permissions
