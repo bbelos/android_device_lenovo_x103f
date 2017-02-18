@@ -41,6 +41,7 @@ TARGET_KERNEL_APPEND_DTB := true
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(PWD)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin/arm-eabi-
 
 BOARD_USES_ALSA_AUDIO := true
+BOARD_SUPPORTS_SOUND_TRIGGER := true
 USE_CAMERA_STUB := true
 
 -include $(QCPATH)/common/msm8909/BoardConfigVendor.mk
