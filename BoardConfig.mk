@@ -47,7 +47,7 @@ USE_CAMERA_STUB := true
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 
 # set the cryptfs_hw directory path
-TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw
+TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/cryptfs_hw
 
 #TODO: Fix-me: Setting TARGET_HAVE_HDMI_OUT to false
 # to get rid of compilation error.
