@@ -42,6 +42,8 @@ TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(PWD)/prebuilts/gcc/linux-x86/arm/arm-eab
 
 BOARD_USES_ALSA_AUDIO := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
+AUDIO_FEATURE_ENABLED_DS2_DOLBY_DAP := true
+
 USE_CAMERA_STUB := true
 
 -include $(QCPATH)/common/msm8909/BoardConfigVendor.mk
