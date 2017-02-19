@@ -57,6 +57,10 @@ PRODUCT_PACKAGES += \
     init.qti.ims.sh \
     init.qti.synaptics_dsx_qhd.sh
 
+# GPS
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
+
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
