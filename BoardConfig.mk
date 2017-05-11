@@ -175,8 +175,6 @@ include device/qcom/sepolicy/sepolicy.mk
 BOARD_WLAN_DEVICE                := qcwcn
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
-WIFI_DRIVER_MODULE_PATH          := /system/lib/modules/wlan.ko
-WIFI_DRIVER_MODULE_NAME          := wlan
 WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_AP           := "ap"
 
